@@ -710,7 +710,7 @@ export default function WorkoutsApp() {
   const daysShort = idioma === 'es' ? DAYS_SHORT_ES : DAYS_SHORT_EN;
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 lg:px-8 py-6 pb-32 lg:pb-8 h-full flex flex-col font-sans">
+    <div className="w-full max-w-6xl mx-auto px-2 sm:px-4 lg:px-8 py-4 sm:py-6 pb-28 sm:pb-32 lg:pb-8 h-full flex flex-col font-sans">
       
       <style>{`
         @keyframes pulse-glow {
@@ -723,35 +723,35 @@ export default function WorkoutsApp() {
       `}</style>
 
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4 sm:mb-6">
         <div>
-          <h1 className="font-headline font-black text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight">
+          <h1 className="font-headline font-black text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 tracking-tight">
             {idioma === 'es' ? 'Mis Workouts' : 'My Workouts'}
           </h1>
-          <p className="text-slate-400 text-sm mt-1">
-            {idioma === 'es' ? 'Planifica y gestiona tus rutinas' : 'Plan and manage your routines'}
+          <p className="text-slate-400 text-xs sm:text-sm mt-1">
+            {idioma === 'es' ? 'Planificación y gestión' : 'Planning & management'}
           </p>
         </div>
         
         <div className="flex items-center gap-2">
           <button 
             onClick={() => { setView('create'); resetForm([getTodayDayKey()]); }}
-            className="px-4 py-2 bg-primary text-background rounded-full text-sm font-bold hover:scale-105 transition-all flex items-center gap-2"
+            className="px-3 sm:px-4 py-2 bg-primary text-background rounded-full text-xs sm:text-sm font-bold hover:scale-105 transition-all flex items-center gap-1 sm:gap-2"
           >
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>add</span>
-            {idioma === 'es' ? 'Nueva' : 'New'}
+            <span className="material-symbols-outlined text-sm sm:text-base" style={{ fontVariationSettings: "'FILL' 1" }}>add</span>
+            <span className="hidden sm:inline">{idioma === 'es' ? 'Nueva' : 'New'}</span>
           </button>
           
-          <div className="flex bg-surface-container-high rounded-full p-1 border border-white/5">
+          <div className="flex bg-surface-container-high rounded-full p-0.5 sm:p-1 border border-white/5">
             <button
               onClick={() => setIdioma('es')}
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${idioma === 'es' ? 'bg-primary text-background' : 'text-slate-400 hover:text-white'}`}
+              className={`px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold transition-all ${idioma === 'es' ? 'bg-primary text-background' : 'text-slate-400 hover:text-white'}`}
             >
               ES
             </button>
             <button
               onClick={() => setIdioma('en')}
-              className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${idioma === 'en' ? 'bg-primary text-background' : 'text-slate-400 hover:text-white'}`}
+              className={`px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold transition-all ${idioma === 'en' ? 'bg-primary text-background' : 'text-slate-400 hover:text-white'}`}
             >
               EN
             </button>
@@ -788,28 +788,28 @@ export default function WorkoutsApp() {
             </div>
             
             {/* Quick Stats */}
-            <div className="grid grid-cols-3 gap-3">
-              <div className="bg-surface-container-high/50 rounded-xl p-3 text-center">
-                <span className="material-symbols-outlined text-primary text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
-                <p className="text-2xl font-black text-primary mt-1">{getWeekStats().completed}</p>
-                <p className="text-xs text-slate-400">{idioma === 'es' ? 'Completadas' : 'Completed'}</p>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3">
+              <div className="bg-surface-container-high/50 rounded-xl p-2 sm:p-3 text-center">
+                <span className="material-symbols-outlined text-primary text-lg sm:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
+                <p className="text-xl sm:text-2xl font-black text-primary mt-0.5 sm:mt-1">{getWeekStats().completed}</p>
+                <p className="text-[10px] sm:text-xs text-slate-400">{idioma === 'es' ? 'Completadas' : 'Completed'}</p>
               </div>
-              <div className="bg-surface-container-high/50 rounded-xl p-3 text-center">
-                <span className="material-symbols-outlined text-secondary text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
-                <p className="text-2xl font-black text-secondary mt-1">{getWeekStats().pending}</p>
-                <p className="text-xs text-slate-400">{idioma === 'es' ? 'Pendientes' : 'Pending'}</p>
+              <div className="bg-surface-container-high/50 rounded-xl p-2 sm:p-3 text-center">
+                <span className="material-symbols-outlined text-secondary text-lg sm:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>schedule</span>
+                <p className="text-xl sm:text-2xl font-black text-secondary mt-0.5 sm:mt-1">{getWeekStats().pending}</p>
+                <p className="text-[10px] sm:text-xs text-slate-400">{idioma === 'es' ? 'Pendientes' : 'Pending'}</p>
               </div>
-              <div className="bg-surface-container-high/50 rounded-xl p-3 text-center">
-                <span className="material-symbols-outlined text-slate-400 text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>cancel</span>
-                <p className="text-2xl font-black text-slate-400 mt-1">{getWeekStats().skipped}</p>
-                <p className="text-xs text-slate-400">{idioma === 'es' ? 'Saltadas' : 'Skipped'}</p>
+              <div className="bg-surface-container-high/50 rounded-xl p-2 sm:p-3 text-center">
+                <span className="material-symbols-outlined text-slate-400 text-lg sm:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>cancel</span>
+                <p className="text-xl sm:text-2xl font-black text-slate-400 mt-0.5 sm:mt-1">{getWeekStats().skipped}</p>
+                <p className="text-[10px] sm:text-xs text-slate-400">{idioma === 'es' ? 'Saltadas' : 'Skipped'}</p>
               </div>
             </div>
           </div>
 
           {/* Horizontal Day Cards */}
-          <div className="overflow-x-auto pb-4 -mx-4 px-4">
-            <div className="flex gap-3 min-w-max">
+          <div className="overflow-x-auto pb-4 -mx-4 px-4 -mb-2">
+            <div className="flex gap-2 sm:gap-3 min-w-max">
               {DAY_KEYS.map((day, index) => {
                 const dayRoutine = getRoutineForDay(day);
                 const dayStatus = getDayStatus(day);
@@ -819,7 +819,7 @@ export default function WorkoutsApp() {
                 return (
                   <div 
                     key={day}
-                    className={`w-[160px] flex-shrink-0 rounded-2xl border transition-all duration-300 ${
+                    className={`w-[140px] sm:w-[160px] flex-shrink-0 rounded-2xl border transition-all duration-300 ${
                       dayRoutine 
                         ? dayStatus?.completed 
                           ? 'bg-gradient-to-b from-primary/20 to-surface-container-low border-primary/30' 
@@ -855,11 +855,11 @@ export default function WorkoutsApp() {
                             </p>
                           </div>
                           
-                          <div className="flex gap-1">
+                          <div className="flex flex-wrap gap-1">
                             {!dayStatus?.completed && !dayStatus?.skipped && (
                               <button
                                 onClick={() => markDayComplete(day, dayRoutine.id, true)}
-                                className="flex-1 py-1.5 bg-primary/20 text-primary rounded-lg text-xs font-bold hover:bg-primary/30 transition-all flex items-center justify-center gap-1"
+                                className="flex-1 min-w-[60px] py-1.5 px-1 bg-primary/20 text-primary rounded-lg text-xs font-bold hover:bg-primary/30 transition-all flex items-center justify-center gap-1"
                               >
                                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check</span>
                                 {idioma === 'es' ? 'Listo' : 'Done'}
@@ -868,7 +868,7 @@ export default function WorkoutsApp() {
                             {dayStatus?.completed && (
                               <button
                                 onClick={() => markDayComplete(day, dayRoutine.id, false)}
-                                className="flex-1 py-1.5 bg-primary text-background rounded-lg text-xs font-bold flex items-center justify-center gap-1 animate-pulse-glow"
+                                className="flex-1 min-w-[60px] py-1.5 px-1 bg-primary text-background rounded-lg text-xs font-bold flex items-center justify-center gap-1 animate-pulse-glow"
                               >
                                 <span className="material-symbols-outlined text-sm" style={{ fontVariationSettings: "'FILL' 1" }}>check_circle</span>
                                 {idioma === 'es' ? 'Hecho' : 'Done'}
@@ -877,14 +877,14 @@ export default function WorkoutsApp() {
                             {!dayStatus?.skipped && (
                               <button
                                 onClick={() => skipDay(day, dayRoutine.id)}
-                                className="py-1.5 px-2 bg-surface-container-high rounded-lg text-slate-400 hover:text-orange-400 hover:bg-orange-400/10 transition-all"
+                                className="py-1.5 px-1.5 bg-surface-container-high rounded-lg text-slate-400 hover:text-orange-400 hover:bg-orange-400/10 transition-all"
                               >
                                 <span className="material-symbols-outlined text-sm">close</span>
                               </button>
                             )}
                             <button
                               onClick={() => removeRoutineFromDay(day)}
-                              className="py-1.5 px-2 bg-surface-container-high rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-400/10 transition-all"
+                              className="py-1.5 px-1.5 bg-surface-container-high rounded-lg text-slate-400 hover:text-red-400 hover:bg-red-400/10 transition-all"
                               title={idioma === 'es' ? 'Quitar' : 'Remove'}
                             >
                               <span className="material-symbols-outlined text-sm">delete</span>
@@ -910,7 +910,7 @@ export default function WorkoutsApp() {
                             </p>
                           </button>
                           {showDaySelector === day && (
-                            <div className="fixed bottom-24 left-4 right-4 bg-surface-container-low border border-white/10 rounded-xl p-2 z-[100] max-h-64 overflow-y-auto" data-day-selector>
+                            <div className="fixed bottom-20 sm:bottom-24 left-2 right-2 sm:left-4 sm:right-4 md:left-auto md:right-auto md:w-80 md:max-w-[calc(100vw-2rem)] left-2 right-2 bg-surface-container-low border border-white/10 rounded-xl p-2 z-[100] max-h-56 sm:max-h-64 overflow-y-auto" data-day-selector>
                               <div className="text-xs font-bold text-primary px-3 py-2 border-b border-white/10 mb-2">
                                 {idioma === 'es' ? 'Asignar a' : 'Assign to'} {day}
                               </div>
@@ -1027,13 +1027,13 @@ export default function WorkoutsApp() {
         <div className="animate-in fade-in slide-in-from-right-4 duration-500 flex-1 flex flex-col">
           <button 
             onClick={() => { setView('main'); resetForm(); }}
-            className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors mb-6 w-fit bg-surface-container-low px-4 py-2 rounded-full border border-white/5"
+            className="flex items-center gap-2 text-slate-400 hover:text-primary transition-colors mb-4 sm:mb-6 w-fit bg-surface-container-low px-3 sm:px-4 py-2 rounded-full border border-white/5 text-sm sm:text-base"
           >
             <span className="material-symbols-outlined text-sm">arrow_back</span> {idioma === 'es' ? 'Volver' : 'Back'}
           </button>
           
-          <h2 className="font-headline font-black text-2xl mb-2 text-on-surface">{idioma === 'es' ? 'Selecciona tus músculos' : 'Select your muscles'}</h2>
-          <p className="text-slate-400 mb-6">{idioma === 'es' ? 'Elige qué grupos musculares quieres trabajar' : 'Choose muscle groups to work'}</p>
+          <h2 className="font-headline font-black text-xl sm:text-2xl mb-2 text-on-surface">{idioma === 'es' ? 'Selecciona tus músculos' : 'Select your muscles'}</h2>
+          <p className="text-slate-400 text-sm mb-4 sm:mb-6">{idioma === 'es' ? 'Elige qué grupos musculares quieres trabajar' : 'Choose muscle groups to work'}</p>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
             {muscleGroups.map(m => {
@@ -1062,9 +1062,9 @@ export default function WorkoutsApp() {
           <button 
             onClick={handleGenerate}
             disabled={selectedMuscles.size === 0}
-            className="w-full py-4 bg-primary text-background font-black text-lg rounded-2xl hover:scale-[1.01] transition-all shadow-lg shadow-primary/20 disabled:opacity-50 disabled:scale-100 flex items-center justify-center gap-2"
+            className="w-full py-3 sm:py-4 bg-primary text-background font-black text-base sm:text-lg rounded-2xl hover:scale-[1.01] transition-all shadow-lg shadow-primary/20 disabled:opacity-50 disabled:scale-100 flex items-center justify-center gap-2"
           >
-            <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
+            <span className="material-symbols-outlined text-lg sm:text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>auto_awesome</span>
             {idioma === 'es' ? 'Generar Rutina' : 'Generate Routine'}
           </button>
         </div>

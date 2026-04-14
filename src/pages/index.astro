@@ -1,28 +1,79 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import MuscleApp from '../components/MuscleApp.tsx';
-import BottomNav from '../components/BottomNav.astro';
 ---
 
 <Layout title="Anatomía Fit - Tu Guía Muscular">
-  <main class="pb-20">
-    <MuscleApp client:load />
-  </main>
-  <BottomNav activeTab="home" />
+  <div class="min-h-screen bg-surface flex flex-col">
+    <!-- Hero Section -->
+    <div class="flex-1 flex flex-col items-center justify-center p-6 text-center">
+      <div class="w-24 h-24 bg-gradient-to-br from-primary to-emerald-400 rounded-3xl flex items-center justify-center mb-6 shadow-[0_0_40px_rgba(78,222,163,0.3)]">
+        <span class="material-symbols-outlined text-5xl text-background" style="font-variation-settings: 'FILL' 1">fitness_center</span>
+      </div>
+      
+      <h1 class="font-headline font-black text-4xl text-on-surface mb-2">
+        Anatomía Fit
+      </h1>
+      <p class="text-slate-400 text-lg mb-8 max-w-xs">
+        Tu guía interactiva para entrenar smarter, no harder
+      </p>
+
+      <!-- Features -->
+      <div class="grid grid-cols-1 gap-4 w-full max-w-sm mb-8">
+        <div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-2xl border border-white/5">
+          <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1">auto_awesome</span>
+          </div>
+          <div class="text-left">
+            <h3 class="font-bold text-on-surface">Creador de Rutinas</h3>
+            <p class="text-xs text-slate-400">Genera rutinas personalizadas</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-2xl border border-white/5">
+          <div class="w-12 h-12 bg-secondary/20 rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1">calendar_month</span>
+          </div>
+          <div class="text-left">
+            <h3 class="font-bold text-on-surface">Plan Semanal</h3>
+            <p class="text-xs text-slate-400">Organiza tu semana de entrenamiento</p>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-4 bg-surface-container-low p-4 rounded-2xl border border-white/5">
+          <div class="w-12 h-12 bg-tertiary/20 rounded-xl flex items-center justify-center">
+            <span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1">person_search</span>
+          </div>
+          <div class="text-left">
+            <h3 class="font-bold text-on-surface">Guía Muscular</h3>
+            <p class="text-xs text-slate-400">Explora ejercicios por músculo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Section -->
+    <div class="p-6 bg-surface-container-low">
+      <a 
+        href="/login"
+        class="block w-full py-4 bg-primary text-background font-bold rounded-2xl text-center hover:scale-[1.02] transition-all shadow-lg shadow-primary/20"
+      >
+        Comenzar Ahora
+      </a>
+      <p class="text-center text-slate-500 text-sm mt-4">
+        ¿Ya tienes cuenta? <a href="/login" class="text-primary hover:underline">Inicia sesión</a>
+      </p>
+    </div>
+  </div>
 </Layout>
 
 <script>
   const stored = localStorage.getItem('pb_auth');
-  if (!stored) {
-    window.location.href = '/login';
-  } else {
+  if (stored) {
     try {
       const authData = JSON.parse(stored);
-      if (!authData.token) {
-        window.location.href = '/login';
+      if (authData.token) {
+        window.location.href = '/home';
       }
-    } catch {
-      window.location.href = '/login';
-    }
+    } catch {}
   }
 </script>

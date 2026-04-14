@@ -1,0 +1,260 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Registro - Anatomía Fit">
+  <div class="min-h-screen bg-surface flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+      <div class="text-center mb-6">
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-primary/20 rounded-full mb-4">
+          <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1">fitness_center</span>
+        </div>
+        <h1 class="font-headline font-black text-3xl text-on-surface">Crear Cuenta</h1>
+        <p class="text-slate-400 mt-2">Únete a Anatomía Fit</p>
+      </div>
+
+      <form id="registerForm" class="space-y-4">
+        <div>
+          <label class="block text-sm text-slate-400 mb-2 font-bold">Nombre</label>
+          <input 
+            type="text" 
+            id="name" 
+            required
+            autocomplete="name"
+            class="w-full px-4 py-3 rounded-2xl bg-surface-container-high border border-white/10 text-on-surface placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
+            placeholder="Tu nombre"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm text-slate-400 mb-2 font-bold">Email</label>
+          <input 
+            type="email" 
+            id="email" 
+            required
+            autocomplete="email"
+            class="w-full px-4 py-3 rounded-2xl bg-surface-container-high border border-white/10 text-on-surface placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
+            placeholder="tu@email.com"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm text-slate-400 mb-2 font-bold">Contraseña</label>
+          <input 
+            type="password" 
+            id="password" 
+            required
+            minlength="8"
+            autocomplete="new-password"
+            class="w-full px-4 py-3 rounded-2xl bg-surface-container-high border border-white/10 text-on-surface placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
+            placeholder="••••••••"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm text-slate-400 mb-2 font-bold">Confirmar Contraseña</label>
+          <input 
+            type="password" 
+            id="passwordConfirm" 
+            required
+            minlength="8"
+            autocomplete="new-password"
+            class="w-full px-4 py-3 rounded-2xl bg-surface-container-high border border-white/10 text-on-surface placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
+            placeholder="••••••••"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm text-slate-400 mb-2 font-bold">Elige tu avatar</label>
+          <div class="flex items-center gap-4 p-3 bg-surface-container-low rounded-2xl border border-white/5">
+            <button type="button" id="avatarBtn" class="relative group flex-shrink-0">
+              <div id="avatarContainer" class="w-14 h-14 rounded-full bg-gradient-to-br from-primary to-emerald-600 flex items-center justify-center shadow-lg">
+                <span id="avatarIcon" class="material-symbols-outlined text-xl text-white" style="font-variation-settings: 'FILL' 1">person</span>
+              </div>
+              <div class="absolute bottom-0 right-0 w-5 h-5 bg-surface-container-high rounded-full flex items-center justify-center border border-surface">
+                <span class="material-symbols-outlined text-xs text-slate-400">edit</span>
+              </div>
+            </button>
+            <p class="text-slate-400 text-sm">Toca para cambiar</p>
+          </div>
+        </div>
+
+        <div id="error" class="text-red-400 text-sm hidden"></div>
+
+        <button 
+          type="submit"
+          class="w-full py-4 bg-primary text-background font-bold rounded-2xl hover:bg-primary/90 transition-all duration-300 shadow-lg shadow-primary/20"
+        >
+          Crear Cuenta
+        </button>
+      </form>
+
+      <div class="mt-6 text-center">
+        <p class="text-slate-400 text-sm mb-4">¿Ya tienes cuenta?</p>
+        <a 
+          href="/login"
+          class="block w-full py-3 bg-surface-container-high border border-white/10 text-on-surface font-bold rounded-2xl hover:bg-surface-container-highest transition-all"
+        >
+          Iniciar Sesión
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avatar Modal -->
+  <div id="avatarModal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+    <div class="bg-surface-container-low rounded-3xl p-6 w-full max-w-sm border border-white/10">
+      <div class="flex items-center justify-between mb-4">
+        <h3 class="font-headline font-bold text-xl text-on-surface">Seleccionar Avatar</h3>
+        <button id="closeAvatarModal" class="p-2 hover:bg-surface-container-high rounded-full transition-colors">
+          <span class="material-symbols-outlined text-slate-400">close</span>
+        </button>
+      </div>
+      <div class="grid grid-cols-5 gap-3 max-h-[300px] overflow-y-auto p-2">
+        {['person', 'fitness_center', 'sports_gymnastics', 'directions_run', 'pool', 'sports_martial_arts', 'sports_handball', 'sports_soccer', 'sports_basketball', 'sports_tennis', 'self_improvement', 'accessibility_new', 'front_hand', 'accessibility', 'psychology', 'military_tech', 'workspace_premium', 'emoji_events', 'stars', 'auto_awesome', 'bolt', 'lightning', 'local_fire_department', 'whatshot', 'rocket_launch', 'celebration', 'cake', 'weekend', 'pets', 'cruelty_free'].map(icon => (
+          <button class={`avatar-option w-12 h-12 rounded-xl flex items-center justify-center bg-surface-container-high hover:bg-surface-container-highest transition-all border border-white/5 ${icon === 'person' ? 'border-primary' : ''}`} data-icon={icon}>
+            <span class="material-symbols-outlined text-xl text-slate-300" style={`font-variation-settings: 'FILL' 1`}>{icon}</span>
+          </button>
+        ))}
+      </div>
+      <button id="confirmAvatar" class="w-full mt-4 py-3 bg-primary text-background font-bold rounded-2xl hover:bg-primary/90 transition-all">
+        Confirmar
+      </button>
+    </div>
+  </div>
+
+  <script>
+    let selectedAvatar = 'person';
+    const avatarIcon = document.getElementById('avatarIcon');
+    const avatarBtn = document.getElementById('avatarBtn');
+    const avatarModal = document.getElementById('avatarModal');
+    const closeAvatarModal = document.getElementById('closeAvatarModal');
+    const confirmAvatar = document.getElementById('confirmAvatar');
+
+    avatarBtn?.addEventListener('click', () => {
+      avatarModal?.classList.remove('hidden');
+      avatarModal?.classList.add('flex');
+    });
+
+    closeAvatarModal?.addEventListener('click', () => {
+      avatarModal?.classList.add('hidden');
+      avatarModal?.classList.remove('flex');
+    });
+
+    document.querySelectorAll('.avatar-option').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.avatar-option').forEach(b => b.classList.remove('border-primary'));
+        btn.classList.add('border-primary');
+        selectedAvatar = btn.getAttribute('data-icon') || 'person';
+      });
+    });
+
+    confirmAvatar?.addEventListener('click', () => {
+      avatarIcon.textContent = selectedAvatar;
+      avatarModal?.classList.add('hidden');
+      avatarModal?.classList.remove('flex');
+    });
+
+    const form = document.getElementById('registerForm');
+    const errorDiv = document.getElementById('error');
+    
+    const stored = localStorage.getItem('pb_auth');
+    if (stored) {
+      try {
+        const authData = JSON.parse(stored);
+        if (authData.token) {
+          window.location.href = '/home';
+        }
+      } catch (e) {}
+    }
+    
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const passwordConfirmInput = document.getElementById('passwordConfirm');
+      
+      const name = nameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+      const passwordConfirm = passwordConfirmInput.value;
+      
+      if (password !== passwordConfirm) {
+        errorDiv.textContent = 'Las contraseñas no coinciden';
+        errorDiv.classList.remove('hidden');
+        return;
+      }
+      
+      if (password.length < 8) {
+        errorDiv.textContent = 'La contraseña debe tener al menos 8 caracteres';
+        errorDiv.classList.remove('hidden');
+        return;
+      }
+      
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 10000);
+        
+        const result = await fetch('https://imggreff.elysrestobar.com/api/collections/users/records', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ 
+            email: email,
+            password: password,
+            passwordConfirm: password,
+            name: name,
+            avatar: selectedAvatar
+          }),
+          signal: controller.signal
+        });
+        
+        clearTimeout(timeoutId);
+        
+        if (!result.ok) {
+          const errorData = await result.json();
+          if (errorData.data?.email) {
+            errorDiv.textContent = 'El email ya está en uso';
+          } else {
+            errorDiv.textContent = 'Error al crear la cuenta';
+          }
+          errorDiv.classList.remove('hidden');
+          return;
+        }
+        
+        const loginResult = await fetch('https://imggreff.elysrestobar.com/api/collections/users/auth-with-password', {
+          method: 'POST',
+          headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({ 
+            identity: email,
+            password: password
+          })
+        });
+        
+        if (loginResult.ok) {
+          const auth = await loginResult.json();
+          localStorage.setItem('pb_auth', JSON.stringify({
+            token: auth.token,
+            model: auth.record
+          }));
+          window.location.href = '/home';
+        } else {
+          window.location.href = '/login';
+        }
+      } catch (err) {
+        console.error('Register error:', err);
+        if (errorDiv) {
+          errorDiv.textContent = err.name === 'AbortError' ? 'Tiempo de espera agotado' : 'Error al crear la cuenta';
+          errorDiv.classList.remove('hidden');
+        }
+      }
+    });
+  </script>
+</Layout>

@@ -276,7 +276,7 @@ export default function MuscleApp() {
               {/* Pecho (Chest) */}
               <g
                 onClick={() => handleGroupClick('pecho')}
-                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] ${selectedGroup === 'pecho' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60'}`}
+                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'pecho' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M136,76 L148,86 L148,125 L115,120 L110,100 Z" />
                 <path d="M164,76 L152,86 L152,125 L185,120 L190,100 Z" />
@@ -285,7 +285,7 @@ export default function MuscleApp() {
               {/* Hombros (Shoulders) */}
               <g
                 onClick={() => handleGroupClick('hombros')}
-                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] ${selectedGroup === 'hombros' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60'}`}
+                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'hombros' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M134,74 L108,98 L92,90 L98,68 L128,62 Z" />
                 <path d="M166,74 L192,98 L208,90 L202,68 L172,62 Z" />
@@ -294,7 +294,7 @@ export default function MuscleApp() {
               {/* Espalda (Lats visbles) */}
               <g
                 onClick={() => handleGroupClick('espalda')}
-                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] ${selectedGroup === 'espalda' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60'}`}
+                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'espalda' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M113,122 L106,102 L95,115 L108,160 L118,155 Z" />
                 <path d="M187,122 L194,102 L205,115 L192,160 L182,155 Z" />
@@ -303,7 +303,7 @@ export default function MuscleApp() {
               {/* Core (Abs) */}
               <g
                 onClick={() => handleGroupClick('core')}
-                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] ${selectedGroup === 'core' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60'}`}
+                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'core' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M148,127 L132,125 L128,145 L148,148 Z" />
                 <path d="M148,150 L126,147 L124,168 L148,172 Z" />
@@ -318,7 +318,7 @@ export default function MuscleApp() {
               {/* Brazos */}
               <g
                 onClick={() => handleGroupClick('biceps')}
-                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] ${selectedGroup === 'biceps' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60'}`}
+                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'biceps' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M106,100 L86,140 L96,155 L112,125 Z" />
                 <path d="M94,102 L76,132 L84,142 L100,118 Z" />
@@ -331,7 +331,7 @@ export default function MuscleApp() {
               {/* Piernas */}
               <g
                 onClick={() => handleGroupClick('piernas')}
-                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] ${selectedGroup === 'piernas' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60'}`}
+                className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'piernas' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M125,193 L148,206 L148,230 L115,225 L118,175 Z" />
                 <path d="M175,193 L152,206 L152,230 L185,225 L182,175 Z" />

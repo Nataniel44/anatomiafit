@@ -10,7 +10,7 @@ import Layout from '../layouts/Layout.astro';
           <span class="material-symbols-outlined text-4xl text-primary" style="font-variation-settings: 'FILL' 1">fitness_center</span>
         </div>
         <h1 class="font-headline font-black text-3xl text-on-surface">Anatomía Fit</h1>
-        <p class="text-slate-400 mt-2">Inicia sesión para continuar</p>
+        <p class="text-slate-400 mt-2">Ingresa a tu cuenta</p>
       </div>
 
       <form id="loginForm" class="space-y-4">
@@ -48,11 +48,14 @@ import Layout from '../layouts/Layout.astro';
         </button>
       </form>
 
-      <div class="mt-6 p-4 bg-surface-container-low rounded-2xl">
-        <p class="text-slate-400 text-xs text-center mb-2">¿Ya tienes sesión activa?</p>
-        <button id="logoutBtn" class="w-full py-2 text-slate-400 hover:text-red-400 text-sm transition-colors">
-          Cerrar sesión
-        </button>
+      <div class="mt-6 text-center">
+        <p class="text-slate-400 text-sm mb-4">¿No tienes cuenta?</p>
+        <a 
+          href="/register"
+          class="block w-full py-3 bg-surface-container-high border border-white/10 text-on-surface font-bold rounded-2xl hover:bg-surface-container-highest transition-all"
+        >
+          Crear Cuenta
+        </a>
       </div>
     </div>
   </div>
@@ -60,24 +63,18 @@ import Layout from '../layouts/Layout.astro';
   <script>
     const form = document.getElementById('loginForm');
     const errorDiv = document.getElementById('error');
-    const logoutBtn = document.getElementById('logoutBtn');
     
     const stored = localStorage.getItem('pb_auth');
     if (stored) {
       try {
         const authData = JSON.parse(stored);
         if (authData.token) {
-          window.location.href = '/';
+          window.location.href = '/home';
         }
       } catch (e) {
         console.error('Auth restore failed', e);
       }
     }
-    
-    logoutBtn?.addEventListener('click', () => {
-      localStorage.removeItem('pb_auth');
-      window.location.reload();
-    });
     
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -91,7 +88,6 @@ import Layout from '../layouts/Layout.astro';
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 10000);
         
-        // Try user collection auth
         const result = await fetch('https://imggreff.elysrestobar.com/api/collections/users/auth-with-password', {
           method: 'POST',
           headers: { 
@@ -107,54 +103,7 @@ import Layout from '../layouts/Layout.astro';
         
         clearTimeout(timeoutId);
         
-        console.log('Response status:', result.status);
-        
         if (!result.ok) {
-          // Maybe user doesn't exist, try to create one
-          const createResult = await fetch('https://imggreff.elysrestobar.com/api/collections/users/records', {
-            method: 'POST',
-            headers: { 
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify({ 
-              email: email,
-              password: password,
-              passwordConfirm: password,
-              name: email.split('@')[0]
-            }),
-            signal: controller.signal
-          });
-          
-          console.log('Create response status:', createResult.status);
-          
-          if (createResult.ok) {
-            // User created, now try to login
-            const loginResult = await fetch('https://imggreff.elysrestobar.com/api/collections/users/auth-with-password', {
-              method: 'POST',
-              headers: { 
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
-              body: JSON.stringify({ 
-                identity: email,
-                password: password
-              })
-            });
-            
-            if (loginResult.ok) {
-              const auth = await loginResult.json();
-              localStorage.setItem('pb_auth', JSON.stringify({
-                token: auth.token,
-                model: auth.record
-              }));
-              window.location.href = '/';
-              return;
-            }
-          }
-          
-          const errorText = await result.text();
-          console.log('Error response:', errorText);
           if (errorDiv) {
             errorDiv.textContent = 'Email o contraseña incorrectos';
             errorDiv.classList.remove('hidden');
@@ -163,14 +112,13 @@ import Layout from '../layouts/Layout.astro';
         }
         
         const auth = await result.json();
-        console.log('Auth success:', auth);
         
         localStorage.setItem('pb_auth', JSON.stringify({
           token: auth.token,
           model: auth.record
         }));
         
-        window.location.href = '/';
+        window.location.href = '/home';
       } catch (err) {
         console.error('Login error:', err);
         if (errorDiv) {

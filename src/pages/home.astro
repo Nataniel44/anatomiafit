@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MuscleApp from '../components/MuscleApp.tsx';
+import BottomNav from '../components/BottomNav.astro';
+---
+
+<Layout title="Anatomía Fit - Tu Guía Muscular">
+  <main class="pb-20">
+    <MuscleApp client:load />
+  </main>
+  <BottomNav activeTab="home" />
+</Layout>
+
+<script>
+  const stored = localStorage.getItem('pb_auth');
+  if (!stored) {
+    window.location.href = '/login';
+  } else {
+    try {
+      const authData = JSON.parse(stored);
+      if (!authData.token) {
+        window.location.href = '/login';
+      }
+    } catch {
+      window.location.href = '/login';
+    }
+  }
+</script>
