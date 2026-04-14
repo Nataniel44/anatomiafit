@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-on-tertiary: #68000a;
+  --color-inverse-surface: #dce1fb;
+  --color-secondary: #adc6ff;
+  --color-secondary-fixed-dim: #adc6ff;
+  --color-on-tertiary-fixed-variant: #930013;
+  --color-surface-container-highest: #2e3447;
+  --color-on-tertiary-fixed: #410004;
+  --color-on-secondary-fixed-variant: #004395;
+  --color-inverse-primary: #006c49;
+  --color-on-secondary-container: #e6ecff;
+  --color-surface: #0c1324;
+  --color-on-error-container: #ffdad6;
+  --color-on-surface: #dce1fb;
+  --color-on-secondary: #002e6a;
+  --color-secondary-container: #0566d9;
+  --color-primary: #4edea3;
+  --color-primary-container: #10b981;
+  --color-surface-dim: #0c1324;
+  --color-tertiary-fixed-dim: #ffb3ad;
+  --color-outline-variant: #3c4a42;
+  --color-tertiary-container: #ff7a73;
+  --color-inverse-on-surface: #2a3043;
+  --color-surface-container-low: #151b2d;
+  --color-on-secondary-fixed: #001a42;
+  --color-surface-tint: #4edea3;
+  --color-surface-bright: #33394c;
+  --color-on-background: #dce1fb;
+  --color-on-surface-variant: #bbcabf;
+  --color-primary-fixed-dim: #4edea3;
+  --color-on-primary-fixed-variant: #005236;
+  --color-tertiary-fixed: #ffdad7;
+  --color-on-primary: #003824;
+  --color-error-container: #93000a;
+  --color-primary-fixed: #6ffbbe;
+  --color-error: #ffb4ab;
+  --color-background: #0c1324;
+  --color-surface-container-high: #23293c;
+  --color-on-tertiary-container: #79000e;
+  --color-on-primary-fixed: #002113;
+  --color-tertiary: #ffb3ad;
+  --color-on-primary-container: #00422b;
+  --color-surface-container: #191f31;
+  --color-surface-container-lowest: #070d1f;
+  --color-secondary-fixed: #d8e2ff;
+  --color-outline: #86948a;
+  --color-on-error: #690005;
+  --color-surface-variant: #2e3447;
+  
+  --font-family-headline: "Lexend", sans-serif;
+  --font-family-body: "Inter", sans-serif;
+  --font-family-label: "Inter", sans-serif;
+}
+
+@layer utilities {
+  .font-headline {
+    font-family: var(--font-family-headline);
+  }
+  .font-body {
+    font-family: var(--font-family-body);
+  }
+  .font-label {
+    font-family: var(--font-family-label);
+  }
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.muscle-pulse {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.glass-panel {
+  background: rgba(35, 41, 60, 0.6);
+  backdrop-filter: blur(24px);
+}
+
+.pulse-glow {
+  box-shadow: 0 0 20px 2px rgba(78, 222, 163, 0.15);
+}
+
+body {
+  min-height: max(884px, 100dvh);
+}

@@ -1,0 +1,19 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "ANATOMÍA FIT" } = Astro.props;
+---
+
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-surface-container-low flat no shadows">
+  <div class="flex items-center gap-3">
+    <div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-primary/20">
+      <img class="w-full h-full object-cover" data-alt="portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_zPQ-TlMGL4yp0w6V7DGRQpvLpsppS8IfFc0kIMD-kqERJC1Z9pjtqc84aNvytANcO562mQzoH8jj-iAv1sd2vEOagwHULKu2GhpkLuUjRBF_65T9scfqbO-7vtOkKn2UHVnt_ZKvs69HMlyT0AIrZiE_r8RJM-3ABQjw2CoTjdKo8sc1WA8GHnbolsM6HMVa8hIR8PhuJ7nIgneILadDjgH5F9I0ShwoQFUj2uiaKHeoSbzS16W8QVhl0LRjB7xGozaFXw3A2uA" />
+    </div>
+    <span class="text-xl font-black tracking-tighter text-emerald-400 uppercase font-headline">{title}</span>
+  </div>
+  <button class="text-slate-500 hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+    <span class="material-symbols-outlined" data-icon="settings">settings</span>
+  </button>
+</header>

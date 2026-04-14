@@ -1,0 +1,22 @@
+---
+interface Props {
+  activeTab?: 'home' | 'workouts' | 'profile';
+}
+
+const { activeTab = 'home' } = Astro.props;
+---
+
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-8 pb-8 pt-4 bg-surface/80 backdrop-blur-xl rounded-t-[3rem] shadow-[0_-8px_30px_rgb(16,185,129,0.06)]">
+  <a class={`flex flex-col items-center justify-center rounded-full px-4 py-2 active:scale-90 duration-200 ${activeTab === 'home' ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-500 hover:text-emerald-300'}`} href="/">
+    <span class="material-symbols-outlined" style={activeTab === 'home' ? "font-variation-settings: 'FILL' 1;" : ""}>home</span>
+    <span class="font-headline text-[10px] uppercase font-bold tracking-widest mt-1">Home</span>
+  </a>
+  <a class={`flex flex-col items-center justify-center rounded-full px-4 py-2 active:scale-90 duration-200 ${activeTab === 'workouts' ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-500 hover:text-emerald-300'}`} href="#">
+    <span class="material-symbols-outlined" style={activeTab === 'workouts' ? "font-variation-settings: 'FILL' 1;" : ""}>fitness_center</span>
+    <span class="font-headline text-[10px] uppercase font-bold tracking-widest mt-1">Workouts</span>
+  </a>
+  <a class={`flex flex-col items-center justify-center rounded-full px-4 py-2 active:scale-90 duration-200 ${activeTab === 'profile' ? 'text-emerald-400 bg-emerald-500/10' : 'text-slate-500 hover:text-emerald-300'}`} href="#">
+    <span class="material-symbols-outlined" style={activeTab === 'profile' ? "font-variation-settings: 'FILL' 1;" : ""}>person</span>
+    <span class="font-headline text-[10px] uppercase font-bold tracking-widest mt-1">Profile</span>
+  </a>
+</nav>

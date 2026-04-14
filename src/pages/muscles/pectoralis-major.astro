@@ -1,0 +1,116 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import BottomNav from '../../components/BottomNav.astro';
+---
+
+<Layout title="ANATOMÍA FIT - Pectoralis Major">
+  <Header title="ANATOMÍA FIT" />
+  
+  <main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+    <section class="mb-12">
+      <div class="flex flex-col items-start gap-1">
+        <span class="font-headline font-bold text-primary tracking-widest text-sm uppercase">Chest</span>
+        <h1 class="font-headline font-black text-5xl md:text-6xl text-on-surface leading-none tracking-tighter">
+          Pectoralis<br/>Major
+        </h1>
+      </div>
+      
+      <div class="mt-8 relative aspect-video rounded-xl overflow-hidden bg-surface-container-low group">
+        <img class="w-full h-full object-cover opacity-60" data-alt="dramatic anatomical close-up of chest muscle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxMV44rB47wayP8wPYVirjt62VzWf0quk_7q4Gxu5QeXh4WSOICgrmVko1XM57ZkCga9QG49vO4RMcdNRAyE1-yEYzsXaeZ52B706JpBPjQMIrUEiMrUjfu6uEV4qIKpEj3rLmG_4Grfprmca9kj2NMMYf8Oqx_mO1sYLdzsz_gAz6FZjAljpcvVrkM8D-vJLNIYPZ-33OtVqL1d1DsaPTTEVkUz_uMg38WoXDe82IaWH5td0T7pIk9_xxYcHLvV8rlc8tVrVuHaA" />
+        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 left-4 flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(78,222,163,0.8)]"></span>
+          <span class="text-[10px] font-headline font-bold tracking-widest text-primary uppercase">Active Anatomy</span>
+        </div>
+      </div>
+    </section>
+    
+    <section class="mb-12">
+      <div class="flex justify-between items-end mb-6">
+        <h2 class="font-headline font-extrabold text-xl tracking-tight text-on-surface">Fiber Type Composition</h2>
+        <span class="text-[10px] font-headline font-bold text-slate-500 tracking-widest uppercase">Biometric Data</span>
+      </div>
+      
+      <div class="bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+        <div class="h-6 w-full bg-surface-container-highest rounded-full flex overflow-hidden mb-8">
+          <div class="h-full bg-secondary" style="width: 30%"></div>
+          <div class="h-full bg-tertiary-container" style="width: 70%"></div>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-8">
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-secondary"></div>
+              <span class="font-headline font-black text-3xl text-on-surface">30%</span>
+            </div>
+            <span class="text-[10px] font-headline font-bold text-secondary uppercase tracking-widest leading-tight">Type I<br/>Slow Twitch</span>
+          </div>
+          <div class="flex flex-col gap-1 items-end text-right">
+            <div class="flex items-center gap-2">
+              <span class="font-headline font-black text-3xl text-on-surface">70%</span>
+              <div class="w-2 h-2 rounded-full bg-tertiary-container"></div>
+            </div>
+            <span class="text-[10px] font-headline font-bold text-tertiary-container uppercase tracking-widest leading-tight">Type II<br/>Fast Twitch</span>
+          </div>
+        </div>
+        
+        <div class="mt-8 pt-6 border-t border-outline-variant/10">
+          <p class="text-on-surface-variant text-sm leading-relaxed italic">
+            "Dominated by fast-twitch fibers, the pectoralis major is engineered for high-velocity power and explosive force output."
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="font-headline font-extrabold text-xl tracking-tight text-on-surface">Recommended Exercises</h2>
+        <button class="text-primary text-[10px] font-headline font-bold tracking-widest uppercase">View All</button>
+      </div>
+      
+      <div class="space-y-4">
+        <div class="group bg-surface-container-high hover:bg-surface-container-highest transition-all duration-300 rounded-xl p-6 flex items-center justify-between cursor-pointer active:scale-95">
+          <div class="flex gap-6 items-center">
+            <div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-lowest">
+              <img class="w-full h-full object-cover" data-alt="heavy bench press" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHiDa3e9ZFTg_-vp8kaCWuOLWwcnqkdLMWYnH7o0TZlMhsno_pYe2HWmcLr-8MJz6DfTlyevb9rGDNl4zT-rxNOa6cgKA9UI7uR3UtyJSuBVzYqa4JfpC6C9mfAUwT37K1kZR6eQwvypN2PXVrTTYP-dI3d6EHE1SvxCY9P1P5eiSYsMV4FopXYVhxdXRZHbZKfJTZqs9qQY7pJi7ye95lhgmtp_BR-Azycqk_gkmQPRJ84Bky-2JUaLBODGCojE2eAJBOX23i67U" />
+            </div>
+            <div>
+              <h3 class="font-headline font-bold text-lg text-on-surface">Bench Press</h3>
+              <span class="text-[10px] font-headline font-bold text-primary-container bg-primary-container/10 px-2 py-0.5 rounded uppercase tracking-widest">Strength</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+        </div>
+        
+        <div class="group bg-surface-container-high hover:bg-surface-container-highest transition-all duration-300 rounded-xl p-6 flex items-center justify-between cursor-pointer active:scale-95">
+          <div class="flex gap-6 items-center">
+            <div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-lowest">
+              <img class="w-full h-full object-cover" data-alt="dumbbell flyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCbdo22roxbW2uWn1MGUu8gRUq7cofozk2PxmDP4XLzjEVZWm4rxulG8jGz5rSr3EPWDv-IhKQ9ZPCHBIn7MDKtV4SbGZN3n7kSRPKyQ8bb-Y2K04pb3NMOtXuTDmZrZPRd9z5qkW9VMFy6whpXLN47vwFWHRvbfdLDvuSjzpJnGKPmBY2US8IWbPE9xsihu_deMt39_rGaNQx2WnxhJ-eCK0iEaUGMRQW6T-yqoUXk-jQVUqeY1p_TIvGqAz9dnJZKchbzgZVrDE" />
+            </div>
+            <div>
+              <h3 class="font-headline font-bold text-lg text-on-surface">Dumbbell Flyes</h3>
+              <span class="text-[10px] font-headline font-bold text-secondary-container bg-secondary-container/10 px-2 py-0.5 rounded uppercase tracking-widest">Hypertrophy</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+        </div>
+        
+        <div class="group bg-surface-container-high hover:bg-surface-container-highest transition-all duration-300 rounded-xl p-6 flex items-center justify-between cursor-pointer active:scale-95">
+          <div class="flex gap-6 items-center">
+            <div class="w-16 h-16 rounded-lg overflow-hidden bg-surface-container-lowest">
+              <img class="w-full h-full object-cover" data-alt="push ups" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcchSBW-HE4SqTGsV1Enr7-6aZPr5NdBYt9IEzOvUx2IEdxzHXjY6fJAnE9HWDRTYRumCHF8PCLm5BimjQI-uyo6Pd3FLCdEc0R3GjRvAFgcwpydw-TtgBkkqXUrfd9-ThgkrNwdNmcTs6xUBpWPg5ZpifOqTwIWUIpDI_RVEAYhmW7AFM44ArVWm2Pvw7VC9rCmaSGhWdQdikrozqZHekkWIHl56wYehuCQoACKMIs0RvSY66t3CsHcB1ztrtp5lnbPry5QavHpI" />
+            </div>
+            <div>
+              <h3 class="font-headline font-bold text-lg text-on-surface">Push-ups</h3>
+              <span class="text-[10px] font-headline font-bold text-slate-500 bg-slate-500/10 px-2 py-0.5 rounded uppercase tracking-widest">Endurance</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <BottomNav activeTab="workouts" />
+</Layout>
