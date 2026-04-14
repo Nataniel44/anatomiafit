@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BottomNav from '../components/BottomNav.astro';
+import WorkoutsApp from '../components/WorkoutsApp';
+---
+
+<Layout title="Rutinas - Anatomía Fit">
+  <main class="min-h-screen">
+    <WorkoutsApp client:load />
+  </main>
+  <BottomNav activeTab="workouts" />
+</Layout>

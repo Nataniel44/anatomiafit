@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BottomNav from '../components/BottomNav.astro';
+---
+
+<Layout title="Perfil - Anatomía Fit">
+  <main class="p-6 pb-24">
+    <div class="flex items-center gap-4 mb-8">
+      <div class="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-emerald-600 flex items-center justify-center shadow-lg shadow-primary/30">
+        <span class="material-symbols-outlined text-3xl text-white" style="font-variation-settings: 'FILL' 1">person</span>
+      </div>
+      <div id="userInfo">
+        <h1 class="font-headline font-black text-2xl text-on-surface" id="userName">Cargando...</h1>
+        <p class="text-slate-400 text-sm" id="userEmail">...</p>
+      </div>
+    </div>
+
+    <div class="space-y-4">
+      <div class="bg-surface-container-low p-4 rounded-2xl border border-white/5">
+        <h3 class="font-headline font-bold text-sm text-slate-400 uppercase tracking-widest mb-3">Cuenta</h3>
+        <div class="space-y-3">
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-high transition-colors text-left">
+            <span class="material-symbols-outlined text-primary">person</span>
+            <span class="text-on-surface">Editar Perfil</span>
+          </button>
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-high transition-colors text-left">
+            <span class="material-symbols-outlined text-primary">notifications</span>
+            <span class="text-on-surface">Notificaciones</span>
+          </button>
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-high transition-colors text-left">
+            <span class="material-symbols-outlined text-primary">security</span>
+            <span class="text-on-surface">Privacidad</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-low p-4 rounded-2xl border border-white/5">
+        <h3 class="font-headline font-bold text-sm text-slate-400 uppercase tracking-widest mb-3">App</h3>
+        <div class="space-y-3">
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-high transition-colors text-left">
+            <span class="material-symbols-outlined text-secondary">palette</span>
+            <span class="text-on-surface">Apariencia</span>
+          </button>
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-high transition-colors text-left">
+            <span class="material-symbols-outlined text-secondary">language</span>
+            <span class="text-on-surface">Idioma</span>
+          </button>
+          <button class="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-surface-container-high transition-colors text-left">
+            <span class="material-symbols-outlined text-secondary">help</span>
+            <span class="text-on-surface">Ayuda</span>
+          </button>
+        </div>
+      </div>
+
+      <button id="logoutBtn" class="w-full flex items-center gap-3 p-4 rounded-2xl bg-red-500/10 hover:bg-red-500/20 transition-colors text-left border border-red-500/20">
+        <span class="material-symbols-outlined text-red-400">logout</span>
+        <span class="text-red-400 font-bold">Cerrar Sesión</span>
+      </button>
+    </div>
+  </main>
+  <BottomNav activeTab="profile" />
+</Layout>
+
+<script>
+  const stored = localStorage.getItem('pb_auth');
+  if (!stored) {
+    window.location.href = '/login';
+  } else {
+    try {
+      const authData = JSON.parse(stored);
+      if (authData.model) {
+        const nameEl = document.getElementById('userName');
+        const emailEl = document.getElementById('userEmail');
+        if (nameEl && authData.model.name) {
+          nameEl.textContent = authData.model.name;
+        } else if (nameEl && authData.model.email) {
+          nameEl.textContent = authData.model.email.split('@')[0];
+        }
+        if (emailEl && authData.model.email) {
+          emailEl.textContent = authData.model.email;
+        }
+      }
+    } catch (e) {
+      window.location.href = '/login';
+    }
+  }
+  
+  const logoutBtn = document.getElementById('logoutBtn');
+  logoutBtn?.addEventListener('click', () => {
+    localStorage.removeItem('pb_auth');
+    window.location.href = '/login';
+  });
+</script>
