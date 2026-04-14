@@ -275,7 +275,7 @@ export default function MuscleApp() {
 
               {/* Pecho (Chest) */}
               <g
-                onClick={() => handleGroupClick('pecho')}
+                onPointerDown={(e) => { e.currentTarget.style.fill = '#22c55e'; setTimeout(() => handleGroupClick('pecho'), 150); }}
                 className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'pecho' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M136,76 L148,86 L148,125 L115,120 L110,100 Z" />
@@ -284,7 +284,7 @@ export default function MuscleApp() {
 
               {/* Hombros (Shoulders) */}
               <g
-                onClick={() => handleGroupClick('hombros')}
+                onPointerDown={(e) => { e.currentTarget.style.fill = '#22c55e'; setTimeout(() => handleGroupClick('hombros'), 150); }}
                 className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'hombros' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M134,74 L108,98 L92,90 L98,68 L128,62 Z" />
@@ -293,7 +293,7 @@ export default function MuscleApp() {
 
               {/* Espalda (Lats visbles) */}
               <g
-                onClick={() => handleGroupClick('espalda')}
+                onPointerDown={(e) => { e.currentTarget.style.fill = '#22c55e'; setTimeout(() => handleGroupClick('espalda'), 150); }}
                 className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'espalda' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M113,122 L106,102 L95,115 L108,160 L118,155 Z" />
@@ -302,7 +302,7 @@ export default function MuscleApp() {
 
               {/* Core (Abs) */}
               <g
-                onClick={() => handleGroupClick('core')}
+                onPointerDown={(e) => { e.currentTarget.style.fill = '#22c55e'; setTimeout(() => handleGroupClick('core'), 150); }}
                 className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'core' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M148,127 L132,125 L128,145 L148,148 Z" />
@@ -317,7 +317,7 @@ export default function MuscleApp() {
 
               {/* Brazos */}
               <g
-                onClick={() => handleGroupClick('biceps')}
+                onPointerDown={(e) => { e.currentTarget.style.fill = '#22c55e'; setTimeout(() => handleGroupClick('biceps'), 150); }}
                 className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'biceps' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M106,100 L86,140 L96,155 L112,125 Z" />
@@ -330,7 +330,7 @@ export default function MuscleApp() {
 
               {/* Piernas */}
               <g
-                onClick={() => handleGroupClick('piernas')}
+                onPointerDown={(e) => { e.currentTarget.style.fill = '#22c55e'; setTimeout(() => handleGroupClick('piernas'), 150); }}
                 className={`cursor-pointer transition-all duration-500 stroke-white/10 stroke-[1] touch-manipulation ${selectedGroup === 'piernas' ? 'fill-primary [filter:url(#neonGlow)]' : 'fill-[#364354] hover:fill-primary/60 active:fill-primary/40'}`}
               >
                 <path d="M125,193 L148,206 L148,230 L115,225 L118,175 Z" />
